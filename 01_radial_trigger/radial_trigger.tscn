@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c02vo53cly1n2"]
+
+[ext_resource type="Texture2D" uid="uid://b3w1xjqpq1j3m" path="res://icon.svg" id="1_0anxe"]
+[ext_resource type="Script" path="res://01_radial_trigger/radial_trigger.gd" id="1_wc77f"]
+
+[node name="RadialTrigger" type="Node2D"]
+script = ExtResource("1_wc77f")
+radial_radius = 300.0
+
+[node name="RadialCenter" type="Sprite2D" parent="."]
+position = Vector2(328, 270)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0anxe")
+
+[node name="Character" type="Sprite2D" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+position = Vector2(1420.97, -224.969)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0anxe")

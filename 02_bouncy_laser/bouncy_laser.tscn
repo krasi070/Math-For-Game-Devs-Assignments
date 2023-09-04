@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwjmqmxcxgg1i"]
+
+[ext_resource type="Script" path="res://02_bouncy_laser/bouncy_laser.gd" id="1_w66jp"]
+[ext_resource type="Texture2D" uid="uid://b3w1xjqpq1j3m" path="res://icon.svg" id="2_flgga"]
+[ext_resource type="Script" path="res://02_bouncy_laser/point_update.gd" id="3_sbypy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4nuh3"]
+size = Vector2(128, 127)
+
+[node name="BouncyLaser" type="Node2D"]
+script = ExtResource("1_w66jp")
+start = Vector2(333, 360)
+target = Vector2(644.894, 261.104)
+bounce_limit = 2
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(511, 552)
+scale = Vector2(5.22656, 0.515625)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="LeftWall" type="Sprite2D" parent="."]
+position = Vector2(66, 403)
+scale = Vector2(0.824219, 3.92969)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="LeftWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="RightWall" type="Sprite2D" parent="."]
+position = Vector2(889, 339)
+scale = Vector2(0.824219, 3.92969)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="RightWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="Platform1" type="Sprite2D" parent="."]
+position = Vector2(396, 402)
+rotation = -0.228635
+scale = Vector2(2.44336, 0.277344)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Platform1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="Platform2" type="Sprite2D" parent="."]
+position = Vector2(669, 296)
+rotation = 0.339356
+scale = Vector2(2.44336, 0.277344)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Platform2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="Platform3" type="Sprite2D" parent="."]
+position = Vector2(402, 199)
+rotation = -0.455608
+scale = Vector2(2.44336, 0.277344)
+texture = ExtResource("2_flgga")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Platform3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4nuh3")
+
+[node name="LaserStart" type="Node2D" parent="."]
+position = Vector2(333, 360)
+script = ExtResource("3_sbypy")
+follow_mouse_click = true
+
+[node name="LaserTarget" type="Node2D" parent="."]
+position = Vector2(644.894, 261.104)
+rotation = 0.0148642
+script = ExtResource("3_sbypy")
+follow_mouse = true

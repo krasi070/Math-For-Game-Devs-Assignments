@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://nrwb2violh1m"]
+
+[ext_resource type="Script" path="res://03a_local_to_world/local_to_world.gd" id="1_8clrm"]
+[ext_resource type="Texture2D" uid="uid://b3w1xjqpq1j3m" path="res://icon.svg" id="2_atvdd"]
+
+[node name="LocalToWorld" type="Node2D"]
+script = ExtResource("1_8clrm")
+
+[node name="Grandparent" type="Sprite2D" parent="."]
+position = Vector2(570, 136)
+texture = ExtResource("2_atvdd")
+
+[node name="Parent1" type="Sprite2D" parent="Grandparent"]
+position = Vector2(-199, 156)
+texture = ExtResource("2_atvdd")
+
+[node name="Child1" type="Sprite2D" parent="Grandparent/Parent1"]
+position = Vector2(-101, 145)
+texture = ExtResource("2_atvdd")
+
+[node name="Child2" type="Sprite2D" parent="Grandparent/Parent1"]
+position = Vector2(93, 147)
+texture = ExtResource("2_atvdd")
+
+[node name="Parent2" type="Sprite2D" parent="Grandparent"]
+position = Vector2(149, 152)
+texture = ExtResource("2_atvdd")
+
+[node name="Child3" type="Sprite2D" parent="Grandparent/Parent2"]
+position = Vector2(8, 149)
+texture = ExtResource("2_atvdd")
