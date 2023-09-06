@@ -19,4 +19,6 @@ func _print_child_positions(node: Node2D = self, depth: int = 0) -> void:
 func _to_world_position(node: Node2D) -> Vector2:
 	if not node.get_parent() is Node2D:
 		return node.position
-	return node.position + _to_world_position(node.get_parent())
+	var parent_transform: Transform2D = node.get_parent().global_transform
+	var parent_world_pos: Vector2 = _to_world_position(node.get_parent())
+	return parent_world_pos + node.position.x * parent_transform.x + node.position.y * parent_transform.y

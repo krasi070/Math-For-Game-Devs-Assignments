@@ -19,4 +19,5 @@ func _print_local_positions(node: Node2D, locale: Node2D) -> void:
 
 
 func _to_local_position(node: Node2D, locale: Node2D) -> Vector2:
-	return node.global_position - locale.global_position
+	var diff: Vector2 = node.global_position - locale.global_position
+	return Vector2(diff.dot(locale.global_transform.x), diff.dot(locale.global_transform.y))

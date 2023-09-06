@@ -24,6 +24,7 @@ texture = ExtResource("2_4bj3u")
 
 [node name="Parent2" type="Sprite2D" parent="Grandparent"]
 position = Vector2(149, 152)
+rotation = -0.722947
 texture = ExtResource("2_4bj3u")
 
 [node name="Child3" type="Sprite2D" parent="Grandparent/Parent2"]

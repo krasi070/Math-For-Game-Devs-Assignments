@@ -42,8 +42,10 @@ func _draw() -> void:
 
 func _update_character_color() -> void:
 	var diff_vector: Vector2 = radial_center.position - character.position
-	var distance: float = sqrt(diff_vector.x * diff_vector.x + diff_vector.y * diff_vector.y)
-	if distance <= radial_radius:
+	# This is the same as using the distance_squared_to function.
+	var sq_distance: float = diff_vector.x * diff_vector.x + diff_vector.y * diff_vector.y
+	# Faster to compare squared values than calculating the square root.
+	if sq_distance <= radial_radius * radial_radius:
 		character.self_modulate = inside_radial_color
 	else:
 		character.self_modulate = outside_radial_color
